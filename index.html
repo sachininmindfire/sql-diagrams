@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SQL Diagram Generator</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <!-- Prism.js for SQL syntax highlighting -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/themes/prism.min.css">
+    <!-- Mermaid.js for diagram generation -->
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>SQL Diagram Generator</h1>
+            <p>Generate database diagrams from SQL scripts</p>
+        </header>
+
+        <main>
+            <div class="input-section">
+                <div class="controls">
+                    <button id="uploadBtn" class="btn">Upload SQL File</button>
+                    <input type="file" id="fileInput" accept=".sql" hidden>
+                    <button id="generateBtn" class="btn btn-primary">Generate Diagram</button>
+                </div>
+                <div class="editor-container">
+                    <textarea id="sqlInput" placeholder="Enter your SQL CREATE TABLE statements here..."></textarea>
+                </div>
+            </div>
+
+            <div class="output-section">
+                <div class="controls">
+                    <button id="downloadBtn" class="btn" disabled>Download Diagram</button>
+                    <select id="themeSelect" class="select">
+                        <option value="light">Light Theme</option>
+                        <option value="dark">Dark Theme</option>
+                    </select>
+                </div>
+                <div id="diagramContainer" class="diagram-container">
+                    <div id="mermaidDiagram" class="mermaid-wrapper"></div>
+                </div>
+            </div>
+        </main>
+
+        <div id="errorContainer" class="error-container hidden">
+            <span class="error-message"></span>
+            <button class="close-btn">&times;</button>
+        </div>
+    </div>
+
+    <!-- Prism.js for syntax highlighting -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.24.1/components/prism-sql.min.js"></script>
+    
+    <!-- Application scripts -->
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
